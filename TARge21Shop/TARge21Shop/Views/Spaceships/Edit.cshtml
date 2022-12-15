@@ -89,11 +89,14 @@ else
                 <input asp-for="BuiltDate" class="form-control" />
             </div>
         </div>
+        <hr/>
 
         <input asp-action="add" asp-controller="spaceships" type="submit" class=" btn btn-primary" value="Add" />
         <a asp-action="edit" asp-controller="spaceships" class="btn btn-primary">Edit</a>
 
         <input asp-action="Update" asp-controller="spaceships" type="submit" class=" btn btn-primary" value="Update" />
+
+        <a asp-action="index" class="btn btn-primary">Index</a>
 
     </form>
 </div>
