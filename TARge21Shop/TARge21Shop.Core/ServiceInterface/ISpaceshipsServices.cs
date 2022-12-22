@@ -1,4 +1,4 @@
-﻿using TARge21Shop.Core.Domain.Spaceship;
+﻿using TARge21Shop.Core.Domain;
 using TARge21Shop.Core.Dto;
 
 namespace TARge21Shop.Core.ServiceInterface

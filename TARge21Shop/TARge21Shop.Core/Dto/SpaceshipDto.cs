@@ -1,4 +1,5 @@
-﻿
+﻿using Microsoft.AspNetCore.Http;
+using TARge21Shop.Core.Domain;
 
 namespace TARge21Shop.Core.Dto
 {
@@ -16,6 +17,9 @@ namespace TARge21Shop.Core.Dto
         public int EnginePower { get; set; }
         public DateTime MaidenLaunch { get; set; }
         public DateTime BuiltDate { get; set; }
+
+        public List<IFormFile> Files { get; set; }
+        public IEnumerable<FileToDatabaseDto> Image { get; set; } = new List<FileToDatabaseDto>();
 
         // only in database
         public DateTime CreatedAt { get; set; }
