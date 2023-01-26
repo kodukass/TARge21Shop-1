@@ -20,5 +20,9 @@ namespace TARge21Shop.Core.Domain
         public int Floor { get; set; }
         public int Price { get; set; }
         public int RoomCount { get; set; }
+
+        // only in database
+        public DateTime CreatedAt { get; set; }
+        public DateTime ModifiedAt { get; set; }
     }
 }
