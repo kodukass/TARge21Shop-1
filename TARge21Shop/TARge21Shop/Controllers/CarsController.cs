@@ -34,7 +34,7 @@ namespace TARge21Shop.Controllers
                     Passangers = x.Passangers,
                     EnginePower = x.EnginePower
                 });
-            return View();
+            return View(result);
         }
 
         [HttpGet]
@@ -97,7 +97,7 @@ namespace TARge21Shop.Controllers
                 CreatedAt = car.CreatedAt,
                 ModifiedAt = car.ModifiedAt
             };
-            return View();
+            return View(dto);
         }
 
         [HttpPost]
