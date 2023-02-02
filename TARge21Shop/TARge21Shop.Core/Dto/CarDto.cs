@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,6 +18,8 @@ namespace TARge21Shop.Core.Dto
         public DateTime LastMaintenance { get; set; }
         public int EnginePower { get; set; }
         public DateTime BuiltDate { get; set; }
+        public List<IFormFile> Files { get; set; }
+        public IEnumerable<FileToDatabaseDto> Image { get; set; } = new List<FileToDatabaseDto>();
         //database
         public DateTime CreatedAt { get; set; }
         public DateTime ModifiedAt { get; set; }
