@@ -137,7 +137,7 @@ namespace TARge21Shop.Controllers
             }
             return RedirectToAction(nameof(Index));
         }
-        [HttpPost]
+        [HttpGet]
         public async Task<IActionResult> Details(Guid id)
         {
             var car = await _carsServices.GetAsync(id);
