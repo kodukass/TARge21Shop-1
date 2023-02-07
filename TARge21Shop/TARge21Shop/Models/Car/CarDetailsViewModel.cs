@@ -11,7 +11,7 @@
         public DateTime LastMaintenance { get; set; }
         public int EnginePower { get; set; }
         public DateTime BuiltDate { get; set; }
-        public List<ImageViewModel> Image { get; set; } = new List<ImageViewModel>();
+        public List<ImageViewModelCar> Image { get; set; } = new List<ImageViewModelCar>();
         //database
         public DateTime CreatedAt { get; set; }
         public DateTime ModifiedAt { get; set; }

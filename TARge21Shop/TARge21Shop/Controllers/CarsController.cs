@@ -68,7 +68,7 @@ namespace TARge21Shop.Controllers
                 ModifiedAt = vm.ModifiedAt
             };
 
-            var result = await _carsServices.Add(dto);
+            var result = await _carsServices.Create(dto);
 
             if (result == null)
             {
@@ -90,7 +90,7 @@ namespace TARge21Shop.Controllers
 
             var photos = await _context.FileToDatabases
                 .Where(x => x.SpaceshipId == id)
-                .Select(y => new ImageViewModel
+                .Select(y => new ImageViewModelCar
                 {
                     CarId = y.Id,
                     ImageId = y.Id,
@@ -99,22 +99,22 @@ namespace TARge21Shop.Controllers
                     Image = string.Format("data:image/gif;base64,{0}", Convert.ToBase64String(y.ImageData))
                 }).ToArrayAsync();
 
-            var dto = new CarEditViewModel()
-            {
-                Id = car.Id,
-                Mark = car.Mark,
-                Type = car.Type,
-                Passangers = car.Passangers,
-                CargoSpace = car.CargoSpace,
-                MaintenanceCount = car.MaintenanceCount,
-                LastMaintenance = car.LastMaintenance,
-                EnginePower = car.EnginePower,
-                BuiltDate = car.BuiltDate,
-                CreatedAt = car.CreatedAt,
-                ModifiedAt = car.ModifiedAt,
-                Image.AddRange(photos)
-        };
-            return View(dto);
+            var vm = new CarEditViewModel();
+
+            vm.Id = car.Id;
+            vm.Mark = car.Mark;
+            vm.Type = car.Type;
+            vm.Passangers = car.Passangers;
+            vm.CargoSpace = car.CargoSpace;
+            vm.MaintenanceCount = car.MaintenanceCount;
+            vm.LastMaintenance = car.LastMaintenance;
+            vm.EnginePower = car.EnginePower;
+            vm.BuiltDate = car.BuiltDate;
+            vm.CreatedAt = car.CreatedAt;
+            vm.ModifiedAt = car.ModifiedAt;
+            vm.Image.AddRange(photos);
+        
+            return View("Edit", vm);
         }
 
         [HttpPost]
@@ -174,7 +174,7 @@ namespace TARge21Shop.Controllers
 
             var photos = await _context.FileToDatabases
                 .Where(x => x.CarId == id)
-                .Select(y => new ImageViewModel
+                .Select(y => new ImageViewModelCar
                 {
                     CarId = y.Id,
                     ImageId = y.Id,
@@ -183,21 +183,21 @@ namespace TARge21Shop.Controllers
                     Image = string.Format("data:image/gif;base64,{0}", Convert.ToBase64String(y.ImageData))
                 }).ToArrayAsync();
 
-            var vm = new CarDetailsViewModel()
-            {
-                Id = car.Id,
-                Mark = car.Mark,
-                Type = car.Type,
-                Passangers = car.Passangers,
-                CargoSpace = car.CargoSpace,
-                MaintenanceCount = car.MaintenanceCount,
-                LastMaintenance = car.LastMaintenance,
-                EnginePower = car.EnginePower,
-                BuiltDate = car.BuiltDate,
-                CreatedAt = car.CreatedAt,
-                ModifiedAt = car.ModifiedAt,
-                Image.AddRange(photos)
-        };
+            var vm = new CarDetailsViewModel();
+
+            vm.Id = car.Id;
+            vm.Mark = car.Mark;
+            vm.Type = car.Type;
+            vm.Passangers = car.Passangers;
+            vm.CargoSpace = car.CargoSpace;
+            vm.MaintenanceCount = car.MaintenanceCount;
+            vm.LastMaintenance = car.LastMaintenance;
+            vm.EnginePower = car.EnginePower;
+            vm.BuiltDate = car.BuiltDate;
+            vm.CreatedAt = car.CreatedAt;
+            vm.ModifiedAt = car.ModifiedAt;
+            vm.Image.AddRange(photos);
+        
             return View(vm);
         }
 
@@ -213,7 +213,7 @@ namespace TARge21Shop.Controllers
 
             var photos = await _context.FileToDatabases
                 .Where(x => x.CarId == id)
-                .Select(y => new ImageViewModel
+                .Select(y => new ImageViewModelCar
                 {
                     CarId = y.Id,
                     ImageId = y.Id,
@@ -222,26 +222,26 @@ namespace TARge21Shop.Controllers
                     Image = string.Format("data:image/gif;base64,{0}", Convert.ToBase64String(y.ImageData))
                 }).ToArrayAsync();
 
-            var vm = new CarDeleteViewModel()
-            {
-                Id = car.Id,
-                Mark = car.Mark,
-                Type = car.Type,
-                Passangers = car.Passangers,
-                CargoSpace = car.CargoSpace,
-                MaintenanceCount = car.MaintenanceCount,
-                LastMaintenance = car.LastMaintenance,
-                EnginePower = car.EnginePower,
-                BuiltDate = car.BuiltDate,
-                CreatedAt = car.CreatedAt,
-                ModifiedAt = car.ModifiedAt,
-                Image.AddRange(photos)
-        };
+            var vm = new CarDeleteViewModel();
+            
+                vm.Id = car.Id;
+                vm.Mark = car.Mark;
+                vm.Type = car.Type;
+                vm.Passangers = car.Passangers;
+                vm.CargoSpace = car.CargoSpace;
+                vm.MaintenanceCount = car.MaintenanceCount;
+                vm.LastMaintenance = car.LastMaintenance;
+                vm.EnginePower = car.EnginePower;
+                vm.BuiltDate = car.BuiltDate;
+                vm.CreatedAt = car.CreatedAt;
+                vm.ModifiedAt = car.ModifiedAt;
+                vm.Image.AddRange(photos);
+        
             return View(vm);
         }
 
         [HttpPost]
-        public async Task<IActionResult> RemoveImage(ImageViewModel file)
+        public async Task<IActionResult> RemoveImage(ImageViewModelCar file)
         {
             var dto = new FileToDatabaseDto()
             {

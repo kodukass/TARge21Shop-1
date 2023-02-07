@@ -1,6 +1,6 @@
 ﻿namespace TARge21Shop.Models.Car
 {
-    public class ImageViewModel
+    public class ImageViewModelCar
     {
         public Guid ImageId { get; set; }
         public string ImageTitle { get; set; }
