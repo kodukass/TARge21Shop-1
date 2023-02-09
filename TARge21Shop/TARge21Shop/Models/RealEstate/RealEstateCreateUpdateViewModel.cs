@@ -1,4 +1,6 @@
-﻿namespace TARge21Shop.Models.RealEstate
+﻿using TARge21Shop.Core.Dto;
+
+namespace TARge21Shop.Models.RealEstate
 {
     public class RealEstateCreateUpdateViewModel
     {
@@ -14,6 +16,9 @@
         public int Floor { get; set; }
         public int Price { get; set; }
         public int RoomCount { get; set; }
+        public List<IFormFile> Files { get; set; }
+        public IEnumerable<FileToApiViewModel> FileToApiViewModels { get; set; }
+            = new List<FileToApiViewModel>();
 
         // only in database
         public DateTime CreatedAt { get; set; }

@@ -13,6 +13,7 @@ using TARge21Shop.Data;
 using TARge21Shop.Data.Migrations;
 using TARge21Shop.Models.RealEstate;
 using TARge21Shop.Models.Spaceship;
+using FileToApiViewModel = TARge21Shop.Models.RealEstate.FileToApiViewModel;
 
 namespace TARge21Shop.Controllers
 {
@@ -53,7 +54,7 @@ namespace TARge21Shop.Controllers
         {
             RealEstateCreateUpdateViewModel vm = new RealEstateCreateUpdateViewModel();
 
-            return View("CreateUpdate", vm);
+            return View("Update", vm);
         }
 
         [HttpPost]
@@ -74,7 +75,13 @@ namespace TARge21Shop.Controllers
                 PostalCode = vm.PostalCode,
                 RoomCount = vm.RoomCount,
                 CreatedAt = vm.CreatedAt,
-                ModifiedAt = vm.ModifiedAt
+                ModifiedAt = vm.ModifiedAt,
+                FileToApiDtos = vm.FileToApiViewModels.Select(x => new FileToApiDto
+                {
+                    Id = x.ImageId,
+                    ExistingFilePath = x.ExistingFilePath,
+                    RealEstateId = x.RealEstateId
+                }).ToArray()
             };
             var result = await _realEstatesServices.Create(dto);
 
@@ -95,17 +102,6 @@ namespace TARge21Shop.Controllers
                 return NotFound();
             }
 
-            //var photos = await _context.FileToDatabases
-            //    .Where(x => x.RealEstateId == id)
-            //    .Select(y => new ImageViewModel
-            //    {
-            //        RealEstateId = y.Id,
-            //        ImageId = y.Id,
-            //        ImageData = y.ImageData,
-            //        ImageTitle = y.ImageTitle,
-            //        Image = string.Format("data:image/gif;base64,{0}", Convert.ToBase64String(y.ImageData))
-            //    }).ToArrayAsync();
-
             var vm = new RealEstateCreateUpdateViewModel();
 
             vm.Id = realEstate.Id;
@@ -124,7 +120,7 @@ namespace TARge21Shop.Controllers
             vm.ModifiedAt = realEstate.ModifiedAt;
 
 
-            return View("CreateUpdate", vm);
+            return View("Update", vm);
         }
 
 
@@ -177,17 +173,6 @@ namespace TARge21Shop.Controllers
             {
                 return NotFound();
             }
-
-            //var photos = await _context.FileToDatabases
-            //    .Where(x => x.SpaceshipId == id)
-            //    .Select(y => new ImageViewModel
-            //    {
-            //        SpaceshipId = y.Id,
-            //        ImageId = y.Id,
-            //        ImageData = y.ImageData,
-            //        ImageTitle = y.ImageTitle,
-            //        Image = string.Format("data:image/gif;base64,{0}", Convert.ToBase64String(y.ImageData))
-            //    }).ToArrayAsync();
 
             var vm = new RealEstateDetailsViewModel();
 
