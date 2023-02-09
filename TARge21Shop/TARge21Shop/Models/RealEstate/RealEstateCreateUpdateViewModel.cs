@@ -17,7 +17,7 @@ namespace TARge21Shop.Models.RealEstate
         public int Price { get; set; }
         public int RoomCount { get; set; }
         public List<IFormFile> Files { get; set; }
-        public IEnumerable<FileToApiViewModel> FileToApiViewModels { get; set; }
+        public List<FileToApiViewModel> FileToApiViewModels { get; set; }
             = new List<FileToApiViewModel>();
 
         // only in database

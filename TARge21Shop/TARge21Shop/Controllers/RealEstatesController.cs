@@ -76,6 +76,7 @@ namespace TARge21Shop.Controllers
                 RoomCount = vm.RoomCount,
                 CreatedAt = vm.CreatedAt,
                 ModifiedAt = vm.ModifiedAt,
+                Files = vm.Files,
                 FileToApiDtos = vm.FileToApiViewModels.Select(x => new FileToApiDto
                 {
                     Id = x.ImageId,

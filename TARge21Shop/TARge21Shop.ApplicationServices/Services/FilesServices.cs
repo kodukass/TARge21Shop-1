@@ -83,7 +83,7 @@ namespace TARge21Shop.ApplicationServices.Services
 
             if (dto.Files != null && dto.Files.Count > 0)
             {
-                if (!Directory.Exists(_webHost.WebRootPath))
+                if (!Directory.Exists(_webHost.WebRootPath + "\\multipleFileUpload\\"))
                 {
                     Directory.CreateDirectory(_webHost.WebRootPath + "\\multipleFileUpload\\");
                 }
