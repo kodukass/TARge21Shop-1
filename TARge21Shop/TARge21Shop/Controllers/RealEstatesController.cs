@@ -21,15 +21,18 @@ namespace TARge21Shop.Controllers
     {
         private readonly IRealEstatesServices _realEstatesServices;
         private readonly TARge21ShopContext _context;
+        private readonly IFilesServices _fileServices;
 
         public RealEstatesController
             (
                 IRealEstatesServices realEstatesServices,
-                TARge21ShopContext context
+                TARge21ShopContext context,
+                IFilesServices fileServices
             )
         {
             _realEstatesServices = realEstatesServices;
             _context = context;
+            _fileServices = fileServices;
         }
 
         [HttpGet]
@@ -52,7 +55,7 @@ namespace TARge21Shop.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            RealEstateCreateUpdateViewModel vm = new RealEstateCreateUpdateViewModel();
+            RealEstateCreateUpdateViewModel vm = new ();
 
             return View("Update", vm);
         }
@@ -103,7 +106,15 @@ namespace TARge21Shop.Controllers
                 return NotFound();
             }
 
-            var vm = new RealEstateCreateUpdateViewModel();
+            var images = await _context.FileToApis
+                .Where(x => x.RealEstateId == id)
+                .Select(y => new FileToApiViewModel
+                {
+                    ExistingFilePath = y.ExistingFilePath,
+                    ImageId = y.Id
+                }).ToArrayAsync();
+            
+                var vm = new RealEstateCreateUpdateViewModel();
 
             vm.Id = realEstate.Id;
             vm.Address = realEstate.Address;
@@ -119,6 +130,7 @@ namespace TARge21Shop.Controllers
             vm.RoomCount = realEstate.RoomCount;
             vm.CreatedAt = realEstate.CreatedAt;
             vm.ModifiedAt = realEstate.ModifiedAt;
+            vm.FileToApiViewModels.AddRange(images);
 
 
             return View("Update", vm);
@@ -144,14 +156,14 @@ namespace TARge21Shop.Controllers
                 RoomCount = vm.RoomCount,
                 CreatedAt = vm.CreatedAt,
                 ModifiedAt = vm.ModifiedAt,
-                //Files = vm.Files,
-                //Image = vm.Image.Select(x => new FileToDatabaseDto
-                //{
-                //    Id = x.ImageId,
-                //    ImageData = x.ImageData,
-                //    ImageTitle = x.ImageTitle,
-                //    SpaceshipId = x.SpaceshipId,
-                //}).ToArray()
+                Files = vm.Files,
+                FileToApiDtos = vm.FileToApiViewModels
+                .Select(x => new FileToApiDto
+                {
+                    Id = x.ImageId,
+                    ExistingFilePath = x.ExistingFilePath,
+                    RealEstateId = x.RealEstateId
+                }).ToArray()
             };
 
             var result = await _realEstatesServices.Update(dto);
@@ -175,6 +187,14 @@ namespace TARge21Shop.Controllers
                 return NotFound();
             }
 
+            var images = await _context.FileToApis
+                .Where(x => x.RealEstateId == id)
+                .Select(y => new FileToApiViewModel
+                {
+                    ExistingFilePath = y.ExistingFilePath,
+                    ImageId = y.Id
+                }).ToArrayAsync();
+
             var vm = new RealEstateDetailsViewModel();
 
             vm.Id = realEstate.Id;
@@ -191,7 +211,7 @@ namespace TARge21Shop.Controllers
             vm.RoomCount = realEstate.RoomCount;
             vm.CreatedAt = realEstate.CreatedAt;
             vm.ModifiedAt = realEstate.ModifiedAt;
-            //vm.Image.AddRange(photos);
+            vm.FileToApiViewModels.AddRange(images);
             return View(vm);
         }
 
@@ -206,16 +226,13 @@ namespace TARge21Shop.Controllers
                 return NotFound();
             }
 
-            //var photos = await _context.FileToDatabases
-            //    .Where(x => x.SpaceshipId == id)
-            //    .Select(y => new ImageViewModel
-            //    {
-            //        SpaceshipId = y.Id,
-            //        ImageId = y.Id,
-            //        ImageData = y.ImageData,
-            //        ImageTitle = y.ImageTitle,
-            //        Image = string.Format("data:image/gif;base64,{0}", Convert.ToBase64String(y.ImageData))
-            //    }).ToArrayAsync();
+            var images = await _context.FileToApis
+                .Where(x => x.RealEstateId == id)
+                .Select(y => new FileToApiViewModel
+                {
+                    ExistingFilePath = y.ExistingFilePath,
+                    ImageId = y.Id
+                }).ToArrayAsync();
 
             var vm = new RealEstateDeleteViewModel();
 
@@ -233,8 +250,7 @@ namespace TARge21Shop.Controllers
             vm.RoomCount = realEstate.RoomCount;
             vm.CreatedAt = realEstate.CreatedAt;
             vm.ModifiedAt = realEstate.ModifiedAt;
-            //vm.Image.AddRange(photos);
-
+            vm.FileToApiViewModels.AddRange(images);
 
             return View(vm);
         }
@@ -246,6 +262,24 @@ namespace TARge21Shop.Controllers
             var realEstateId = await _realEstatesServices.Delete(id);
 
             if (realEstateId == null)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> RemoveImage(FileToApiViewModel vm)
+        {
+            var dto = new FileToApiDto()
+            {
+                Id = vm.ImageId
+            };
+
+            var image = await _fileServices.RemoveImageFromApi(dto);
+
+            if (image == null)
             {
                 return RedirectToAction(nameof(Index));
             }
