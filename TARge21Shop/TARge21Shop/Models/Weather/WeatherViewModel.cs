@@ -6,9 +6,13 @@
         public int EpochDate { get; set; }
         public Temperatures Temperature { get; set; }
         public DayNightCycles DayCycle { get; set; }
+        public DayNightCycles NightCycle { get; set; }
         public List<string> Sources { get; set; }
         public string MobileLink { get; set; }
         public string Link { get; set; }
+        public string Text { get; set; }
+        public int Severity { get; set; }
+        public string Category { get; set; }
     }
 
     public class DayNightCycles
@@ -20,6 +24,11 @@
         public string PrecipitationIntensity { get; set; }
     }
 
+    public class Temperatures
+    {
+        public Temperatures Minimum { get; set; }
+        public Temperatures Maximum { get; set; }
+    }
     public class Minimum
     {
         public double Value { get; set; }
@@ -27,10 +36,6 @@
         public int UnitType { get; set; }
     }
 
-    public class Temperatures
-    {
-        public Temperatures Minimum { get; set; }
-        public Temperatures Maximum { get; set; }
-    }
+    
 }
 

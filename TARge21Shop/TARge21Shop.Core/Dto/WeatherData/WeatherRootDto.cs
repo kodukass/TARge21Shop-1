@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static TARge21Shop.Core.Dto.WeatherData.DailyForecastsDto;
+﻿using TARge21Shop.Core.Dto.WeatherData;
 
-namespace TARge21Shop.Core.Dto.WeatherData
+namespace TARge21Shop.Core.Dto.WeatherDtos
 {
     public class WeatherRootDto
     {
