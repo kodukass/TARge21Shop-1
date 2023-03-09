@@ -1,92 +1,135 @@
 ﻿@model TARge21Shop.Models.Weather.WeatherViewModel
 
-<h1>Result</h1>
+<h1>City</h1>
 <div class="container">
 	<div class="form-group col-md-3">
 		<h2>Forecast for the selected city</h2>
 
-		<label asp-for="Date"></label>
-		<span class="badge">@Model.Date</span>
+		<div class="form-group row">
+			<label asp-for="EffectiveDate" class="col-sm-2 col-form-label"></label>
+			@Html.DisplayFor(model => model.EffectiveDate)
+		</div>
+
 		<br/>
 
-		<label asp-for="EpochDate"></label>
-		<span class="badge">@Model.EpochDate</span>
+		<div class="form-group row">
+			<label asp-for="EffectiveEpochDate" class="col-sm-2 col-form-label"></label>
+			@Html.DisplayFor(model => model.EffectiveEpochDate)
+		</div>
 		<br />
 
-		<label asp-for="Severity"></label>
-		<span class="badge">@Model.Severity</span>
+		<div class="form-group row">
+			<label asp-for="Severity" class="col-sm-2 col-form-label"></label>
+			@Html.DisplayFor(model => model.Severity)
+		</div>
 		<br />
 
-		<label asp-for="Text"></label>
-		<span class="badge">@Model.Text</span>
+		<div class="form-group row">
+			<label asp-for="Text" class="col-sm-2 col-form-label"></label>
+			@Html.DisplayFor(model => model.Text)
+		</div>
 		<br />
 
-		<label asp-for="MobileLink"></label>
-		<span class="badge">@Model.MobileLink</span>
+		<div class="form-group row">
+			<label asp-for="MobileLink" class="col-sm-2 col-form-label"></label>
+			@Html.DisplayFor(model => model.MobileLink)
+		</div>
 		<br />
 
-		<label asp-for="Link"></label>
-		<span class="badge">@Model.Link</span>
+		<div class="form-group row">
+			<label asp-for="Link" class="col-sm-2 col-form-label"></label>
+			@Html.DisplayFor(model => model.Link)
+		</div>
 		<br />
 
-		<label asp-for="Category"></label>
-		<span class="badge">@Model.Category</span>
+		<div class="form-group row">
+			<label asp-for="Category" class="col-sm-2 col-form-label"></label>
+			@Html.DisplayFor(model => model.Category)
+		</div>
 		<br />
 
-		<label asp-for="Temperature.Minimum.Value"></label>
-		<span class="badge">@Model.Temperature.Minimum.Value</span>
+		<div class="form-group row">
+			<label asp-for="TempMinValue" class="col-sm-2 col-form-label"></label>
+			@Html.DisplayFor(model => model.TempMinValue)
+		</div>
 		<br />
 
-		<label asp-for="Temperature.Minimum.Unit"></label>
-		<span class="badge">@Model.Temperature.Minimum.Unit</span>
+		<div class="form-group row">
+			<label asp-for="TempMinUnit" class="col-sm-2 col-form-label"></label>
+			@Html.DisplayFor(model => model.TempMinUnit)
+		</div>
 		<br />
 
-		<label asp-for="Temperature.Minimum.UnitType"></label>
-		<span class="badge">@Model.Temperature.Minimum.UnitType</span>
+		<div class="form-group row">
+			<label asp-for="TempMinUnitType" class="col-sm-2 col-form-label"></label>
+			@Html.DisplayFor(model => model.TempMinUnitType)
+		</div>
 		<br />
 
-		<label asp-for="Temperature.Maximum.Value"></label>
-		<span class="badge">@Model.Temperature.Maximum.Value</span>
+		<div class="form-group row">
+			<label asp-for="TempMaxValue" class="col-sm-2 col-form-label"></label>
+			@Html.DisplayFor(model => model.TempMaxValue)
+		</div>
 		<br />
 
-		<label asp-for="Temperature.Maximum.Unit"></label>
-		<span class="badge">@Model.Temperature.Maximum.Unit</span>
+		<div class="form-group row">
+			<label asp-for="TempMaxUnit" class="col-sm-2 col-form-label"></label>
+			@Html.DisplayFor(model => model.TempMaxUnit)
+		</div>
 		<br />
 
-		<label asp-for="Temperature.Maximum.UnitType"></label>
-		<span class="badge">@Model.Temperature.Maximum.UnitType</span>
+		<div class="form-group row">
+			<label asp-for="TempMaxUnitType" class="col-sm-2 col-form-label"></label>
+			@Html.DisplayFor(model => model.TempMaxUnitType)
+		</div>
 		<br />
 
-		<label asp-for="DayCycle.Icon"></label>
-		<span class="badge">@Model.DayCycle.Icon</span>
+		<div class="form-group row">
+			<label asp-for="DayIcon" class="col-sm-2 col-form-label"></label>
+			@Html.DisplayFor(model => model.DayIcon)
+		</div>
 		<br />
 
-		<label asp-for="DayCycle.IconPhrase"></label>
-		<span class="badge">@Model.DayCycle.IconPhrase</span>
+		<div class="form-group row">
+			<label asp-for="DayIconPhrase" class="col-sm-2 col-form-label"></label>
+			@Html.DisplayFor(model => model.DayIconPhrase)
+		</div>
 		<br />
 
-		<label asp-for="DayCycle.HasPrecipitation"></label>
-		<span class="badge">@Model.DayCycle.HasPrecipitation</span>
+		<div class="form-group row">
+			<label asp-for="DayHasPrecipitation" class="col-sm-2 col-form-label"></label>
+			@Html.DisplayFor(model => model.DayHasPrecipitation)
+		</div>
 		<br />
 
-		<label asp-for="DayCycle.PrecipitationType"></label>
-		<span class="badge">@Model.DayCycle.PrecipitationType</span>
+		<div class="form-group row">
+			<label asp-for="DayPrecipitationType" class="col-sm-2 col-form-label"></label>
+			@Html.DisplayFor(model => model.DayPrecipitationType)
+		</div>
 		<br />
 
-		<label asp-for="NightCycle.Icon"></label>
-		<span class="badge">@Model.NightCycle.Icon</span>
+		<div class="form-group row">
+			<label asp-for="NightIcon" class="col-sm-2 col-form-label"></label>
+			@Html.DisplayFor(model => model.NightIcon)
+		</div>
 		<br />
 
-		<label asp-for="NightCycle.IconPhrase"></label>
-		<span class="badge">@Model.NightCycle.IconPhrase</span>
+		<div class="form-group row">
+			<label asp-for="NightIconPhrase" class="col-sm-2 col-form-label"></label>
+			@Html.DisplayFor(model => model.NightIconPhrase)
+		</div>
 		<br />
 
-		<label asp-for="NightCycle.HasPrecipitation"></label>
-		<span class="badge">@Model.NightCycle.HasPrecipitation</span>
+		<div class="form-group row">
+			<label asp-for="NightHasPrecipitation" class="col-sm-2 col-form-label"></label>
+			@Html.DisplayFor(model => model.NightHasPrecipitation)
+		</div>
 		<br />
 
-		<label asp-for="NightCycle.PrecipitationType"></label>
-		<span class="badge">@Model.NightCycle.PrecipitationType</span>
+		<div class="form-group row">
+			<label asp-for="NightPrecipitationType" class="col-sm-2 col-form-label"></label>
+			@Html.DisplayFor(model => model.NightPrecipitationType)
+		</div>
 		<br />
 	</div>
 </div>

@@ -4,24 +4,11 @@ namespace TARge21Shop.Core.Dto.WeatherDtos
 {
     public class DailyForecastsDto
     {
-        //[JsonPropertyName("EffectiveDate")]
-        //public DateTime Date { get; set; }
-        //[JsonPropertyName("EffectiveEpochDate")]
-        //public int EpochDate { get; set; }
-        //[JsonPropertyName("Severity")]
-        //public int Severity { get; set; }
         public Temperature Temperature { get; set; }
-        //[JsonPropertyName("Text")]
-        //public string Text { get; set; }
-        //[JsonPropertyName("Category")]
-        //public string Category { get; set; }
+        [JsonPropertyName("Text")]
         public Day Day { get; set; }
         public Night Night { get; set; }
         public List<string> Sources { get; set; }
-        //[JsonPropertyName("EffectiveDate")]
-        //public string MobileLink { get; set; }
-        //[JsonPropertyName("EffectiveDate")]
-        //public string Link { get; set; }
     }
 
     public class Temperature
