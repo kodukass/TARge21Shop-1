@@ -1,6 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.DependencyInjection;
+using TARge21Shop.ApplicationServices.Services;
+using TARge21Shop.Core.Domain;
+using TARge21Shop.Core.ServiceInterface;
 using TARge21Shop.Data;
 using TARge21Shop.SpaceshipTest.Macros;
 
@@ -33,6 +37,11 @@ namespace TARge21Shop.SpaceshipTest
 
         public virtual void SetupServices(IServiceCollection services) 
         {
+            //var 
+            services.AddScoped<ISpaceshipsServices, SpaceshipsServices>();
+            services.AddScoped<IFilesServices, FilesServices>();
+            services.AddScoped<IHostingEnvironment>();
+
             services.AddDbContext<TARge21ShopContext>(x =>
             {
                 x.UseInMemoryDatabase("TEST");
@@ -43,7 +52,7 @@ namespace TARge21Shop.SpaceshipTest
         }
         private  void RegisterMacros(IServiceCollection services) 
         {
-            var macroBaseType = typeof(IMacro);
+            var macroBaseType = typeof(IMacros);
 
             var macros = macroBaseType.Assembly.GetTypes()
                 .Where(x => macroBaseType.IsAssignableFrom(x) && !x.IsInterface && !x.IsAbstract);
