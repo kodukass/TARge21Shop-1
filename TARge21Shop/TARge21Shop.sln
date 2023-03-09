@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TARge21Shop", "TARge21Shop\TARge21Shop.csproj", "{B052A97F-985E-4FEA-8338-58BEFD40F90F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TARge21Shop", "TARge21Shop\TARge21Shop.csproj", "{B052A97F-985E-4FEA-8338-58BEFD40F90F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TARge21Shop.ApplicationServices", "TARge21Shop.ApplicationServices\TARge21Shop.ApplicationServices.csproj", "{41111230-5F38-4877-A602-C4575477573C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TARge21Shop.ApplicationServices", "TARge21Shop.ApplicationServices\TARge21Shop.ApplicationServices.csproj", "{41111230-5F38-4877-A602-C4575477573C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TARge21Shop.Core", "TARge21Shop.Core\TARge21Shop.Core.csproj", "{401C88C8-3857-482B-B3F9-3286EF49C228}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TARge21Shop.Core", "TARge21Shop.Core\TARge21Shop.Core.csproj", "{401C88C8-3857-482B-B3F9-3286EF49C228}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TARge21Shop.Data", "TARge21Shop.Data\TARge21Shop.Data.csproj", "{47FF7CEF-D397-4084-AF13-D63BEE1D938D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TARge21Shop.Data", "TARge21Shop.Data\TARge21Shop.Data.csproj", "{47FF7CEF-D397-4084-AF13-D63BEE1D938D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TARge21Shop.SpaceshipTest", "TARge21Shop.SpaceshipTest\TARge21Shop.SpaceshipTest.csproj", "{DC8EDCBA-9B0F-44F6-A460-DB0BF121D9E6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{47FF7CEF-D397-4084-AF13-D63BEE1D938D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47FF7CEF-D397-4084-AF13-D63BEE1D938D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47FF7CEF-D397-4084-AF13-D63BEE1D938D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC8EDCBA-9B0F-44F6-A460-DB0BF121D9E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC8EDCBA-9B0F-44F6-A460-DB0BF121D9E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC8EDCBA-9B0F-44F6-A460-DB0BF121D9E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC8EDCBA-9B0F-44F6-A460-DB0BF121D9E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
