@@ -2,11 +2,13 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using TARge21Shop.ApplicationServices.Services;
 using TARge21Shop.Core.Domain;
 using TARge21Shop.Core.ServiceInterface;
 using TARge21Shop.Data;
 using TARge21Shop.SpaceshipTest.Macros;
+using TARge21Shop.SpaceshipTest.Mock;
 
 namespace TARge21Shop.SpaceshipTest
 {
@@ -40,7 +42,7 @@ namespace TARge21Shop.SpaceshipTest
             //var 
             services.AddScoped<ISpaceshipsServices, SpaceshipsServices>();
             services.AddScoped<IFilesServices, FilesServices>();
-            services.AddScoped<IHostingEnvironment>();
+            services.AddScoped<IHostEnvironment, MockIHostEnvironment>();
 
             services.AddDbContext<TARge21ShopContext>(x =>
             {

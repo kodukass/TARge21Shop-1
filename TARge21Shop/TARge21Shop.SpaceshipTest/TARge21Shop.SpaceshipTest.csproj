@@ -27,7 +27,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TARge21Shop.ApplicationServices\TARge21Shop.ApplicationServices.csproj" />
+    <ProjectReference Include="..\TARge21Shop.Core\TARge21Shop.Core.csproj" />
     <ProjectReference Include="..\TARge21Shop.Data\TARge21Shop.Data.csproj" />
+    <ProjectReference Include="..\TARge21Shop\TARge21Shop.csproj" />
   </ItemGroup>
 
 </Project>
