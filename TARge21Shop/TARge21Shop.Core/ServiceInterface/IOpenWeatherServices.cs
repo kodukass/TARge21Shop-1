@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TARge21Shop.Core.Dto.WeatherData;
+using System;
 using TARge21Shop.Core.Dto.WeatherDtos;
 
 namespace TARge21Shop.Core.ServiceInterface

@@ -23,14 +23,14 @@ namespace TARge21Shop.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult ShowWeather(WeatherViewModel vm)
+        public IActionResult ShowWeather()
         {
             if (ModelState.IsValid)
             {
                 return RedirectToAction("City", "WeatherForecasts");
             }
 
-            return View(vm);
+            return View();
         }
 
         [HttpGet]

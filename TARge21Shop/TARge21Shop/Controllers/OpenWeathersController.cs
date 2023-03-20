@@ -5,11 +5,11 @@ using TARge21Shop.Models.Weather;
 
 namespace TARge21Shop.Controllers
 {
-    public class OpenWeatherController : Controller
+    public class OpenWeathersController : Controller
     {
         private readonly IOpenWeatherServices _openWeatherServices;
 
-        public OpenWeatherController
+        public OpenWeathersController
             (
             IOpenWeatherServices openWeatherServices
             )
@@ -23,7 +23,7 @@ namespace TARge21Shop.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult ShowWeather(OpenWeatherViewModel vm)
+        public IActionResult ShowWeather()
         {
             if (ModelState.IsValid)
             {

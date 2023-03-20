@@ -5,7 +5,7 @@ using TARge21Shop.Core.ServiceInterface;
 
 namespace TARge21Shop.ApplicationServices.Services
 {
-    public class OpenWeatherServices : IOpenWeatherServices
+    public class OpenWeathersServices : IOpenWeatherServices
     {
         public async Task<OpenWeatherResultDto> WeatherDetail(OpenWeatherResultDto dto)
         {
