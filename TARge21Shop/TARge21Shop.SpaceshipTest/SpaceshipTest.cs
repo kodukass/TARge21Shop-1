@@ -36,6 +36,5 @@ namespace TARge21Shop.SpaceshipTest
 
             Assert.NotNull(result);
         }
-       
     }
 }

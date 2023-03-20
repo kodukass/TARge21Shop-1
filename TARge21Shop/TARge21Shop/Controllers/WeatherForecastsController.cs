@@ -30,7 +30,7 @@ namespace TARge21Shop.Controllers
                 return RedirectToAction("City", "WeatherForecasts");
             }
 
-            return View();
+            return View(vm);
         }
 
         [HttpGet]
