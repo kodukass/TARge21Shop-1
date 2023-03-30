@@ -27,7 +27,7 @@ namespace TARge21Shop.Controllers
         {
             if (ModelState.IsValid)
             {
-                return RedirectToAction("City1", "WeatherForecasts");
+                return RedirectToAction("City1", "OpenWeathers");
             }
 
             return View();
