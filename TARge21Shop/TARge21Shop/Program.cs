@@ -1,3 +1,4 @@
+using MailKit;
 using Microsoft.EntityFrameworkCore;
 using TARge21Shop.ApplicationServices.Services;
 using TARge21Shop.Core.ServiceInterface;
@@ -16,6 +17,7 @@ builder.Services.AddScoped<ISpaceshipsServices, SpaceshipsServices>();
 builder.Services.AddScoped<IFilesServices, FilesServices>();
 builder.Services.AddScoped<IRealEstatesServices, RealEstatesServices>();
 builder.Services.AddScoped<IWeatherForecastsServices, WeatherForecastsServices>();
+builder.Services.AddScoped<IEmailServices, EmailServices>();
 
 
 var app = builder.Build();
