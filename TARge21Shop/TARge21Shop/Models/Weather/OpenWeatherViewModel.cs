@@ -2,19 +2,35 @@
 {
     public class OpenWeatherViewModel
     {
-        //main
-        public double temp { get; set; }
-        public double feels_like { get; set; }
-        public int pressure { get; set; }
-        public int humidity { get; set; }
+        public Coord Coords { get; set; }
+        public List<Weather> Weathers { get; set; }
+        public Main Mains { get; set; }
+        public Wind Winds { get; set; }
+        public string Name { get; set; }
 
-        //wind
-        public double speed { get; set; }
+        public class Coord
+        {
+            public double Lon { get; set; }
+            public double Lat { get; set; }
+        }
 
-        //weather
-        public string main { get; set; } //condition
+        public class Main
+        {
+            public double Temp { get; set; }
+            public double Feels_like { get; set; }
+            public int Pressure { get; set; }
+            public int Humidity { get; set; }
+        }
 
-        //name
-        public string name { get; set; }
+        public class Weather
+        {
+            public string Main { get; set; }
+            public string Description { get; set; }
+        }
+
+        public class Wind
+        {
+            public double Speed { get; set; }
+        }
     }
 }

@@ -41,43 +41,20 @@ namespace TARge21Shop.Controllers
 
             _openWeatherServices.WeatherDetail(dto);
 
-            vm.temp = dto.temp;
-            vm.feels_like = dto.feels_like;
-            vm.pressure = dto.pressure;
-            vm.humidity = dto.humidity;
+            vm.Weathers = new List<OpenWeatherViewModel.Weather>();
+            vm.Weathers.Add(new OpenWeatherViewModel.Weather());
+            vm.Weathers[0].Main = dto.Main;
 
-            vm.speed = dto.speed;
+            vm.Mains = new OpenWeatherViewModel.Main();
+            vm.Mains.Temp = dto.Temp;
+            vm.Mains.Feels_like = dto.Feels_like;
+            vm.Mains.Pressure = dto.Pressure;
+            vm.Mains.Humidity = dto.Humidity;
 
-            vm.main = dto.main;
+            vm.Winds = new OpenWeatherViewModel.Wind();
+            vm.Winds.Speed = dto.Speed;
 
-            vm.name = dto.name;
-            //vm.EffectiveDate = dto.EffectiveDate;
-            //vm.EffectiveEpochDate = dto.EffectiveEpochDate;
-            //vm.Severity = dto.Severity;
-            //vm.Text = dto.Text;
-            //vm.MobileLink = dto.MobileLink;
-            //vm.Link = dto.Link;
-            //vm.Category = dto.Category;
-
-            //vm.TempMinValue = dto.TempMinValue;
-            //vm.TempMinUnit = dto.TempMinUnit;
-            //vm.TempMinUnitType = dto.TempMinUnitType;
-
-            //vm.TempMaxValue = dto.TempMaxValue;
-            //vm.TempMaxUnit = dto.TempMaxUnit;
-            //vm.TempMaxUnitType = dto.TempMaxUnitType;
-
-            //vm.DayIcon = dto.DayIcon;
-            //vm.DayIconPhrase = dto.DayIconPhrase;
-            //vm.DayHasPrecipitation = dto.DayHasPrecipitation;
-            //vm.DayPrecipitationType = dto.DayPrecipitationType;
-            //vm.DayPrecipitationIntensity = dto.DayPrecipitationIntensity;
-
-            //vm.NightIcon = dto.NightIcon;
-            //vm.NightIconPhrase = dto.NightIconPhrase;
-            //vm.NightHasPrecipitation = dto.NightHasPrecipitation;
-            //vm.NightPrecipitationType = dto.NightPrecipitationType;
-            //vm.NightPrecipitationIntensity = dto.NightPrecipitationIntensity;
+            vm.Name = dto.Name;
 
             return View(vm);
         }

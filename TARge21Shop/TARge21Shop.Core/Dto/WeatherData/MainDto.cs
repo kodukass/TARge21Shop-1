@@ -9,26 +9,58 @@ namespace TARge21Shop.Core.Dto.WeatherData
 {
     public class MainDto
     {
-        //main
-        [JsonPropertyName("temp")]
-        public double temp { get; set; }
-        [JsonPropertyName("feels_like")]
-        public double feels_like { get; set; }
-        [JsonPropertyName("pressure")]
-        public int pressure { get; set; }
-        [JsonPropertyName("humidity")]
-        public int humidity { get; set; }
+            [JsonPropertyName("coord")]
+            public Coords Coord { get; set; }
 
-        //wind
-        [JsonPropertyName("speed")]
-        public double speed { get; set; }
+            [JsonPropertyName("weather")]
+            public List<Weathers> Weather { get; set; }
 
-        //weather
-        [JsonPropertyName("main")]
-        public string main { get; set; } //condition
+            [JsonPropertyName("main")]
+            public Mains Main { get; set; }
 
-        //name
-        [JsonPropertyName("name")]
-        public string name { get; set; }
+            [JsonPropertyName("wind")]
+            public Winds Wind { get; set; }
+
+            [JsonPropertyName("name")]
+            public string Name { get; set; }
+
+            public class Coords
+            {
+                [JsonPropertyName("lon")]
+                public double Lon { get; set; }
+
+               [JsonPropertyName("lat")]
+                public double Lat { get; set; }
+            }
+
+            public class Mains
+            {
+                [JsonPropertyName("temp")]
+                public double Temp { get; set; }
+
+                [JsonPropertyName("feels_like")]
+                public double Feels_like { get; set; }
+
+                [JsonPropertyName("pressure")]
+                public int Pressure { get; set; }
+
+                [JsonPropertyName("humidity")]
+                public int Humidity { get; set; }
+            }
+
+            public class Weathers
+            {
+                [JsonPropertyName("main")]
+                public string Main { get; set; }
+
+                [JsonPropertyName("description")]
+                public string Description { get; set; }
+            }
+
+            public class Winds
+            {
+                [JsonPropertyName("speed")]
+                public double Speed { get; set; }
+            }
     }
 }

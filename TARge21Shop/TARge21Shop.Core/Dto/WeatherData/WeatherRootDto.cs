@@ -9,5 +9,6 @@ namespace TARge21Shop.Core.Dto.WeatherDtos
         public MainDto Main { get; set; }
         public MainDto Weather { get; set; }
         public MainDto Wind { get; set; }
+        public MainDto Name { get; set; }
     }
 }

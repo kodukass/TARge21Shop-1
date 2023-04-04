@@ -1,54 +1,19 @@
-﻿namespace TARge21Shop.Core.Dto.WeatherDtos
+﻿using static TARge21Shop.Core.Dto.WeatherData.MainDto;
+
+namespace TARge21Shop.Core.Dto.WeatherDtos
 {
     public class OpenWeatherResultDto
     {
-        //main
-        public double temp { get; set; }
-        public double feels_like { get; set; }
-        public int pressure { get; set; }
-        public int humidity { get; set; }
-        
-        //wind
-        public double speed { get; set; }
-
-        //weather
-        public string main { get; set; } //condition
-
-        //name
-        public string name { get; set; }
-
-        //public bool DayHasPrecipitation;
-
-        //public DateTime EffectiveDate { get; set; }
-        //public int EffectiveEpochDate { get; set; }
-        //public int Severity { get; set; }
-        //public string Text { get; set; }
-        //public string Category { get; set; }
-        //public DateTime EndDate { get; set; }
-        //public int EndEpochDate { get; set; }
-
-        //public string MobileLink { get; set; }
-        //public string Link { get; set; }
-
-
-
-        //public double TempMinValue { get; set; }
-        //public string TempMinUnit { get; set; }
-        //public int TempMinUnitType { get; set; }
-
-        //public double TempMaxValue { get; set; }
-        //public string TempMaxUnit { get; set; }
-        //public int TempMaxUnitType { get; set; }
-
-        //public int DayIcon { get; set; }
-        //public string DayIconPhrase { get; set; }
-        //public string DayPrecipitationType { get; set; }
-        //public string DayPrecipitationIntensity { get; set; }
-
-        //public int NightIcon { get; set; }
-        //public string NightIconPhrase { get; set; }
-        //public bool NightHasPrecipitation { get; set; }
-        //public string NightPrecipitationType { get; set; }
-        //public string NightPrecipitationIntensity { get; set; }
+        public string Name { get; set; }
+        public List<Weathers> Weather { get; set; }
+        public double Lon { get; set; }
+        public double Lat { get; set; }
+        public double Temp { get; set; }
+        public double Feels_like { get; set; }
+        public int Pressure { get; set; }
+        public int Humidity { get; set; }
+        public string Main { get; set; }
+        public string Description { get; set; }
+        public double Speed { get; set; }
     }
 }
