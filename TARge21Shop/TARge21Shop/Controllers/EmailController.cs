@@ -2,6 +2,7 @@
 using MailKit.Security;
 using Microsoft.AspNetCore.Mvc;
 using MimeKit;
+using TARge21Shop.Core.Dto;
 
 namespace TARge21Shop.Controllers
 {
@@ -24,5 +25,16 @@ namespace TARge21Shop.Controllers
 
             return Ok();
         }
+        //[HttpPost]
+        //public IActionResult SendEmail1(EmailModelViewModel vm)
+        //{
+        //    var dto = new EmailDto()
+        //    {
+        //        To=vm.To,
+        //        Subject=vm.Subject,
+        //        Body=vm.Body
+        //    }
+        //    _emailservices
+        //}
     }
 }
