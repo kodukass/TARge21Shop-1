@@ -49,6 +49,8 @@ namespace TARge21Shop.Controllers
             vm.speed = dto.speed;
 
             vm.main = dto.main;
+
+            vm.name = dto.name;
             //vm.EffectiveDate = dto.EffectiveDate;
             //vm.EffectiveEpochDate = dto.EffectiveEpochDate;
             //vm.Severity = dto.Severity;

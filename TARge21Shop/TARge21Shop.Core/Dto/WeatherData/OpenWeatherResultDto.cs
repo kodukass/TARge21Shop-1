@@ -14,6 +14,8 @@
         //weather
         public string main { get; set; } //condition
 
+        //name
+        public string name { get; set; }
 
         //public bool DayHasPrecipitation;
 
@@ -28,7 +30,7 @@
         //public string MobileLink { get; set; }
         //public string Link { get; set; }
 
-        
+
 
         //public double TempMinValue { get; set; }
         //public string TempMinUnit { get; set; }

@@ -13,5 +13,8 @@
 
         //weather
         public string main { get; set; } //condition
+
+        //name
+        public string name { get; set; }
     }
 }

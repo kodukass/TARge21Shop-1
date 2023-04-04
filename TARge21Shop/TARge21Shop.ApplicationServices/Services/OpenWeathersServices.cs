@@ -11,7 +11,7 @@ namespace TARge21Shop.ApplicationServices.Services
         {
             //127964
             string apikey = "935a14337aaca171504b8689bcae1f51";
-            var url = $"https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid=935a14337aaca171504b8689bcae1f51";
+            var url = $"https://api.openweathermap.org/data/2.5/weather?lat=59.436962&lon=24.753574&appid=935a14337aaca171504b8689bcae1f51";
 
             using (WebClient client = new WebClient())
             {
@@ -27,6 +27,8 @@ namespace TARge21Shop.ApplicationServices.Services
                 dto.speed = weatherInfo.Main.speed;
 
                 dto.main = weatherInfo.Main.main;
+
+                dto.name = weatherInfo.Main.name;
 
                 //dto.EndEpochDate = weatherInfo.Headline.EndEpochDate;
 

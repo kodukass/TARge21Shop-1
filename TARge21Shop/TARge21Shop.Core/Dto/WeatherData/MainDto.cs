@@ -26,5 +26,9 @@ namespace TARge21Shop.Core.Dto.WeatherData
         //weather
         [JsonPropertyName("main")]
         public string main { get; set; } //condition
+
+        //name
+        [JsonPropertyName("name")]
+        public string name { get; set; }
     }
 }
