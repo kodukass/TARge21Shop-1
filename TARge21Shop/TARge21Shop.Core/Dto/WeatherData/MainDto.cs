@@ -9,7 +9,7 @@ namespace TARge21Shop.Core.Dto.WeatherData
 {
     public class MainDto
     {
-            [JsonPropertyName("coord")]
+        [JsonPropertyName("coord")]
             public Coords Coord { get; set; }
 
             [JsonPropertyName("weather")]

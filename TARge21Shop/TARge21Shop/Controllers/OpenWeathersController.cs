@@ -18,7 +18,7 @@ namespace TARge21Shop.Controllers
         }
         public IActionResult Index()
         {
-            OpenWeatherViewModel vm = new OpenWeatherViewModel();
+            SearchCityViewModel vm = new SearchCityViewModel();
 
             return View();
         }
@@ -32,12 +32,23 @@ namespace TARge21Shop.Controllers
 
             return View();
         }
+        [HttpPost]
+        public IActionResult SearchCity(SearchCityViewModel model)
+        {
+            if (ModelState.IsValid) 
+            {
+                return RedirectToAction("City1", "OpenWeathers", new {city = model.CityName});
+            }
+            return View(model);
+        }
 
         [HttpGet]
-        public IActionResult City1()
+        public IActionResult City1(string city)
         {
             OpenWeatherResultDto dto = new OpenWeatherResultDto();
             OpenWeatherViewModel vm = new OpenWeatherViewModel();
+
+            dto.Name = city;
 
             _openWeatherServices.WeatherDetail(dto);
 
@@ -54,7 +65,7 @@ namespace TARge21Shop.Controllers
             vm.Winds = new OpenWeatherViewModel.Wind();
             vm.Winds.Speed = dto.Speed;
 
-            vm.Name = dto.Name;
+            vm.Name = dto.Name ;
 
             return View(vm);
         }
