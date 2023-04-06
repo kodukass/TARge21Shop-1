@@ -4,6 +4,6 @@ namespace TARge21Shop.Core.ServiceInterface
 {
     public interface IEmailServices
     {
-        void SendEmail(EmailDto request);
+        void SendEmail(EmailDto dto);
     }
 }

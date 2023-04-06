@@ -1,34 +1,42 @@
-﻿using MailKit.Security;
+﻿using MailKit.Net.Smtp;
 using Microsoft.Extensions.Configuration;
-using MimeKit.Text;
 using MimeKit;
+using NETCore.MailKit.Core;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using TARge21Shop.Core.Dto;
 using TARge21Shop.Core.ServiceInterface;
-using MailKit.Net.Smtp;
-using MailKit;
-
+ 
 namespace TARge21Shop.ApplicationServices.Services
 {
-    public class EmailServices : IEmailServices
+    public class EmailService : IEmailServices
     {
         private readonly IConfiguration _config;
 
-        public EmailServices(IConfiguration config)
+        public EmailService(IConfiguration config)
         {
             _config = config;
         }
 
-        public void SendEmail(EmailDto request)
+        public void SendEmail(EmailDto dto)
         {
             var email = new MimeMessage();
-            email.From.Add(MailboxAddress.Parse(_config.GetSection("EmailUsername").Value));
-            email.To.Add(MailboxAddress.Parse(request.To));
-            email.Subject = request.Subject;
-            email.Body = new TextPart(TextFormat.Html) { Text = request.Body };
+            email.From.Add(MailboxAddress.Parse(_config.GetSection("EmailUserName").Value));
+            email.To.Add(MailboxAddress.Parse(dto.To));
+            email.Subject = dto.Subject;
+            email.Body = new TextPart(MimeKit.Text.TextFormat.Html)
+            {
+                Text = dto.Body
+            };
 
+            //kindlasti kasutada MailKit.Net.Smtp
             using var smtp = new SmtpClient();
-            smtp.Connect(_config.GetSection("EmailHost").Value, 587, SecureSocketOptions.StartTls);
-            smtp.Authenticate(_config.GetSection("EmailUsername").Value, _config.GetSection("EmailPassword").Value);
+            //kui kasutad teist teenusepakkujat, siis nt on smtp.gmail.com
+            smtp.Connect(_config.GetSection("EmailHost").Value, 587, MailKit.Security.SecureSocketOptions.StartTls);
+            smtp.Authenticate(_config.GetSection("EmailUserName").Value, _config.GetSection("EmailPassword").Value);
             smtp.Send(email);
             smtp.Disconnect(true);
         }
